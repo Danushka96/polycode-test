@@ -19,6 +19,7 @@ func main() {
 
 	r.GET("/hello", controllers.HelloWithoutCache)
 	r.GET("/hello-cache", controllers.HelloWithCache)
+	r.POST("/hello-post", controllers.HelloPOST)
 
 	err := runtime.Start(runtime.WithHttpHandler(r))
 	if err != nil {
