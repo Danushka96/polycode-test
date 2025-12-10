@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"pos-app/controllers"
+
 	runtime "github.com/cloudimpl/polycode-runtime/go"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	_ "pos-app/.polycode"
-	"pos-app/controllers"
 )
 
 func main() {
@@ -16,7 +17,8 @@ func main() {
 	config.AllowAllOrigins = true
 	r.Use(cors.New(config))
 
-	r.POST("/hello", controllers.Hello)
+	r.GET("/hello", controllers.HelloWithoutCache)
+	r.GET("/hello-cache", controllers.HelloWithCache)
 
 	err := runtime.Start(runtime.WithHttpHandler(r))
 	if err != nil {
