@@ -9,7 +9,7 @@ import (
 )
 
 func HelloWithCache(c *gin.Context) {
-	var req map[string]interface{}
+	req := make(map[string]interface{})
 	req["name"] = c.Query("name")
 
 	ctx, err := apicontext.FromContext(c.Request.Context())
@@ -42,7 +42,7 @@ func HelloWithCache(c *gin.Context) {
 }
 
 func HelloWithoutCache(c *gin.Context) {
-	var req map[string]interface{}
+	req := make(map[string]interface{})
 	req["name"] = c.Query("name")
 
 	ctx, err := apicontext.FromContext(c.Request.Context())
