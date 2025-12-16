@@ -1,7 +1,7 @@
 module pos-app
 
 require (
-	github.com/cloudimpl/polycode-runtime/go v0.4.0
+	github.com/cloudimpl/polycode-runtime/go v0.6.0
 	github.com/gin-contrib/cors v1.7.6
 	github.com/gin-gonic/gin v1.10.1
 )
